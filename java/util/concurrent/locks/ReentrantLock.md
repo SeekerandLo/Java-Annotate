@@ -31,11 +31,11 @@ class X {
 }
 ```
 
-- 除了实现 Lock 的接口，此类定义了许多用于检查锁的状态的 public 方法和 protected 方法，其中一些方法仅用于[**使用**(**instrumentation**)](https://github.com/SeekerandLo/Java-Annotate/issues)和监控[👉有问题，提issue](https://github.com/SeekerandLo/Java-Annotate/issues)
+- 除了实现 Lock 的接口，此类定义了许多用于检查锁的状态的 public 方法和 protected 方法，其中一些方法仅用于**使用**(**instrumentation**)和监控[👉有问题，提issue](https://github.com/SeekerandLo/Java-Annotate/issues)
 
 - 此类的序列化与内置锁的行为方式相同：反序列化锁处于未锁定状态，与序列化时的状态无关。
 
-- 该锁支持同一线程最多 2147483647 个[递归锁](https://github.com/SeekerandLo/Java-Annotate/issues)。尝试超过此限制会导致 error 从锁定方法抛出
+- 该锁支持同一线程最多 2147483647 个**递归锁**[👉有问题，点击提issue](https://github.com/SeekerandLo/Java-Annotate/issues)。尝试超过此限制会导致 error 从锁方法抛出
 
 ***
 [有问题，点击提issue](https://github.com/SeekerandLo/Java-Annotate/issues/new)
