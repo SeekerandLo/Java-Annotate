@@ -2,6 +2,17 @@
 ```java
 public class ReentrantLock implements Lock,Serializable{
     ...
+    abstract static class Sync extends AbstractQueuedSynchronizer{
+      ...
+    }
+    ...
+    static final class NonfairSync extends Sync {
+      ...
+    }
+    ...
+    static final class FairSync extends Sync {
+      ...
+    }
 }
 ```
 
@@ -36,6 +47,15 @@ class X {
 - 此类的序列化与内置锁的行为方式相同：反序列化锁处于未锁定状态，与序列化时的状态无关。
 
 - 该锁支持同一线程最多 2147483647 个**递归锁**[👉有问题，点击提issue](https://github.com/SeekerandLo/Java-Annotate/issues)。尝试超过此限制会导致 error 从锁方法抛出
+
+### Sync
+- Sync 以同步为基础，公平锁与非公平锁是它的子类，使用 AQS 状态来表示锁的持有次数
+
+### FairSync
+- 公平锁，
+
+### NonfairSync
+- 非公平锁
 
 ***
 [有问题，点击提issue](https://github.com/SeekerandLo/Java-Annotate/issues/new)
