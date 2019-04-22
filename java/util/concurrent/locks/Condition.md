@@ -9,7 +9,7 @@ public interface Condition {
 
 - {@code Condition} factors out the {@code Object} monitor methods ({@link Object#wait() wait}, {@link Object#notify notify} and {@link Object#notifyAll notifyAll}) into distinct objects to give the effect of having multiple wait-sets per object, by combining them with the use of arbitrary {@link Lock} implementations.[👉看不懂，怎么理解好](https://github.com/SeekerandLo/Java-Annotate/issues)。当一个 Lock 代替 Synchronized 修饰的方法和语句，一个 Condition 代替 Object 的监视方法
 
-- Conditions 也被理解成条件队列，或条件变量，提供一个意思是一个线程推迟执行(to wait)直到被其他现在状态是 true 的线程通知，因为对共享状态信息的访问发生在不同的线程中，这必须被保护，所以某种形式的锁与 condition 有关。等待条件提供的key value是自动释放关联锁，推迟/暂停(suspends)[👉有问题，提issue](https://github.com/SeekerandLo/Java-Annotate/issues)当前线程，就想 Object 的 wait()
+- Conditions 也被理解成条件队列，或条件变量，提供一个意思是一个线程推迟执行(to wait)直到被其他现在状态是 true 的线程通知，因为对共享状态信息的访问发生在不同的线程中，这必须被保护，所以某种形式的锁与 condition 有关。等待条件提供的key value是自动释放关联锁，推迟/暂停(suspends)[👉有问题，提issue](https://github.com/SeekerandLo/Java-Annotate/issues)当前线程，就像 Object 的 wait()
 
 - 一个 Condition 实例是一个 Lock 的内在的约束，获得一个 Lock 的 Condition 实例使用它的 newCondition() 方法
 
@@ -59,4 +59,6 @@ public interface Condition {
 
     }
     ```
-- 
+- ArrayBlockingQueue 提供了这个功能，没必要实现这个简单使用类
+
+- Condition 的实现提供的行为和语义与 Object 的监视方法不同
